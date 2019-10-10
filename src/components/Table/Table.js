@@ -22,7 +22,7 @@ class Table extends Component {
     }
 
     deleteBtn = (id) => {
-        console.log('btn click')
+        // console.log('btn click')
         axios.delete(`/api/shelf/${id}`)
         .then((response) =>{
         console.log(response.data)
