@@ -21,6 +21,19 @@ class Table extends Component {
         })
     }
 
+    deleteBtn = (id) => {
+        // console.log('btn click')
+        axios.delete(`/api/shelf/${id}`)
+        .then((response) =>{
+        console.log(response.data)
+        // this.setState({items: response.data})
+        })
+        .catch((error) => {
+        console.log('GET ERROR:', error)
+        })
+        this.componentDidMount();
+    }
+
     render() {
         return (
             <>
@@ -36,7 +49,8 @@ class Table extends Component {
                        <tr key={i}>
                                <td>{item.description}</td>
                                <td>{item.image_url}</td>
-                           <td>{item.user_id}</td>
+                           <td>{item.username}</td>
+                           <td><button onClick={() => this.deleteBtn(item.id)}>Delete</button></td>
                            </tr>
                        );
                    })}
