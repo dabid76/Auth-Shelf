@@ -49,7 +49,7 @@ class Table extends Component {
                        <tr key={i}>
                                <td>{item.description}</td>
                                <td>{item.image_url}</td>
-                           <td>{item.user_id}</td>
+                           <td>{item.username}</td>
                            <td><button onClick={() => this.deleteBtn(item.id)}>Delete</button></td>
                            </tr>
                        );

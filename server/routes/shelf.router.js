@@ -7,7 +7,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
  * Get all of the items on the shelf
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const queryText = 'SELECT * FROM "item"';
+    const queryText = 'SELECT "item".* , "user".username FROM "item" JOIN "user" ON "item".user_id = "user".id;';
     pool.query(queryText)
         .then(results => res.send(results.rows))
         .catch(error => {
